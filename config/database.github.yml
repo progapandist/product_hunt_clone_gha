@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
+  database: product_hunt_clone_gha_test
+
+test:
+  <<: *default
+
+development:
+  <<: *default
