@@ -27,7 +27,7 @@ jobs:
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Install required Node.js version
-      - uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v2-beta
         with:
           node-version: "14"
       - name: Get Yarn cache directory path
