@@ -11,9 +11,9 @@ jobs:
 
     services:
       postgres:
-        image: postgres:11.6-alpine
+        image: postgres:11
         env:
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
         # needed because the postgres container does not provide a healthcheck
@@ -48,5 +48,6 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
           sudo apt-get -yqq install libpq-dev
+          cp config/database.github.yml config/database.yml
           bundle exec rails db:prepare
           bundle exec rails test
